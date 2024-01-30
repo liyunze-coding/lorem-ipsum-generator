@@ -1,0 +1,153 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+$gray-900 : #1E1F22;
+$gray-800 : #282A2E;
+$gray-700 : #303338;
+$blue-discord : #5865F2;
+
+body {
+    background: $gray-800;
+    color: rgb(255 255 255);
+    font-family: "Poppins", sans-serif;
+}
+
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    
+    width: 70%;
+
+    background-color: $gray-900;
+
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+
+    border-radius: 0.75rem;
+
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    text-align: center;
+
+    height: 700px;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    form {
+        input[type=number] {
+            background-color: $gray-700;
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        button[type=submit] {
+            background-color: $blue-discord;
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        input[type=checkbox] {
+            appearance: none;
+            background-color: $gray-700;
+            width: 15px;
+            height: 15px;
+            position: relative;
+            cursor: pointer;
+            border-radius: 3px;
+
+            margin-right: 1rem;
+
+            border-color: rgb(255 255 255);
+    
+            &:before {
+                content: "";
+                position: absolute;
+                top: 1px;
+                left: 5px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                width: 3px;
+                height: 8px;
+                transform: rotate(45deg);
+                opacity: 0;
+            }
+    
+            &:checked:before {
+                opacity: 1;
+            }
+        }
+    }
+
+    #result-container {
+        width: 100%;
+        position: relative;
+        padding: 0px;
+
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+
+        #copy-button {
+            position:absolute;
+            right: 1rem;
+            top: 1rem;
+
+            cursor:pointer;
+
+            z-index: 10;
+            background: $gray-700;
+        }
+
+        #result {
+            position:absolute;
+            background: $gray-700;
+            width: 100%;
+            flex-grow: 1;
+            height: 500px;
+            top: 0;
+            left:0;
+    
+            border-radius: 0.75rem;
+    
+            text-align: justify;
+    
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+    
+            max-height: 800px;
+    
+            overflow-y: auto;
+    
+            text-overflow: ellipsis;
+        }
+    }
+
+    
+}

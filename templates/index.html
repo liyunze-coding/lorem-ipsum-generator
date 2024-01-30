@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{{.Title}}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/static/index.css" />
+		<script defer src="/static/index.js"></script>
+		<script
+			src="https://unpkg.com/htmx.org@1.9.10"
+			integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<div id="container">
+			<h1>{{.Title}}</h1>
+
+			<!-- HTMX form -->
+			<form
+				hx-post="/get-lorem-ipsum"
+				hx-target="#result"
+				hx-swap="innerHTML"
+			>
+				<label for="max-char">Max Characters</label>
+				<input
+					type="number"
+					id="max-char"
+					name="max-char"
+					min="10"
+					max="1000000"
+					value="100"
+				/>
+				<input
+					type="checkbox"
+					name="max-char-bool"
+					id="max-char-bool"
+				/>
+
+				<label for="max-char">Paragraphs</label>
+				<input
+					type="number"
+					id="paragraphs"
+					name="paragraphs"
+					min="0"
+					max="100"
+					value="1"
+				/>
+
+				<button type="submit">Generate!</button>
+			</form>
+
+			<!-- HTMX response placeholder -->
+			<div id="result-container">
+				<div id="copy-button">
+					<svg
+						height="25px"
+						width="25px"
+						version="1.1"
+						id="Capa_1"
+						xmlns="http://www.w3.org/2000/svg"
+						xmlns:xlink="http://www.w3.org/1999/xlink"
+						viewBox="0 0 210.107 210.107"
+						xml:space="preserve"
+					>
+						<g>
+							<path
+								style="fill: #fafafa"
+								d="M168.506,0H80.235C67.413,0,56.981,10.432,56.981,23.254v2.854h-15.38
+								c-12.822,0-23.254,10.432-23.254,23.254v137.492c0,12.822,10.432,23.254,23.254,23.254h88.271
+								c12.822,0,23.253-10.432,23.253-23.254V184h15.38c12.822,0,23.254-10.432,23.254-23.254V23.254C191.76,10.432,181.328,0,168.506,0z
+								M138.126,186.854c0,4.551-3.703,8.254-8.253,8.254H41.601c-4.551,0-8.254-3.703-8.254-8.254V49.361
+								c0-4.551,3.703-8.254,8.254-8.254h88.271c4.551,0,8.253,3.703,8.253,8.254V186.854z M176.76,160.746
+								c0,4.551-3.703,8.254-8.254,8.254h-15.38V49.361c0-12.822-10.432-23.254-23.253-23.254H71.981v-2.854
+								c0-4.551,3.703-8.254,8.254-8.254h88.271c4.551,0,8.254,3.703,8.254,8.254V160.746z"
+							/>
+						</g>
+					</svg>
+				</div>
+				<div id="result"></div>
+			</div>
+		</div>
+	</body>
+</html>
